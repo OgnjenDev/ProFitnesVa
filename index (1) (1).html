@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Fitness Valjevo - Vaš put do savršene forme</title>
+    <style>
+        /* --- OPŠTI STILOVI --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-color: #e74c3c; /* Crvena kao akcent */
+            --secondary-color: #2c3e50; /* Tamno plava/siva */
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --light-gray: #ecf0f1;
+            --dark-gray: #34495e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        /* --- HEADER I NAVIGACIJA --- */
+        .main-header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- HERO SEKCIJA --- */
+        .hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            background-color: red;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: src="main.jpg"; <!-- ZAMENITE SA VAŠOM SLIKOM -->
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        /* --- USLUGE SEKCIJA --- */
+        .services {
+            background-color: #fff;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--light-gray);
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- O NAMA / GALERIJA SEKCIJA --- */
+        .about-gallery {
+            background-color: var(--light-gray);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            filter: brightness(0.8);
+        }
+
+        /* --- KONTAKT SEKCIJA --- */
+        .contact {
+            background-color: #fff;
+        }
+        .contact-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .contact-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- FOOTER --- */
+        .main-footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .main-footer p {
+            margin: 0;
+        }
+
+        /* --- RESPONSIVNOST --- */
+        @media (max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+            }
+
+            .main-nav ul {
+                margin-top: 15px;
+                padding: 10px;
+            }
+
+            .main-nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- === HEADER === -->
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">Pro Fitness</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#pocetna">Početna</a></li>
+                    <li><a href="#usluge">Usluge</a></li>
+                    <li><a href="#galerija">Galerija</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- === HERO SEKCIJA === -->
+        <section id="pocetna" class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content container">
+                <h1>Dobrodošli u Pro Fitness Valjevo</h1>
+                <p>Vaš put do savršene forme, zdravlja i samopouzdanja počinje ovde. Otkrijte snatu koja se u vas krije!</p>
+                <a href="#kontakt" class="cta-button">Zakaži svoj prvi trening</a>
+            </div>
+        </section>
+
+        <!-- === USLUGE SEKCIJA === -->
+        <section id="usluge" class="services">
+            <div class="container">
+                <h2>Naše Usluge</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="trake.jpg" alt="Kardio oprema"> <!-- ZAMENITE SA VAŠOM SLIKOM -->
+                        <h3>Kardio zona</h3>
+                        <p>Opremljena najnovijim traka za trčanje, eliptičnim biciklima i steperima za topotresnu i efikasnu trening.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="main.jpg" alt="veći tegovi"> <!-- ZAMENITE SA VAŠOM SLIKOM -->
+                        <h3>Glavna sala</h3>
+                        <p>Širok izbor slobodnih tegova, sprava za sve mišićne grupe i profesionalni štangeri za vaš napredak.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="ulaz.jpg" alt="Personalni trening"> <!-- ZAMENITE SA VAŠOM SLIKOM -->
+                        <h3>Personalni treninzi</h3>
+                        <p>Naši iskusni treneri će kreirati program prilagođen samo vama, kako biste brže i bezbednije dostigli ciljeve.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === GALERIJA SEKCIJA === -->
+        <section id="galerija" class="about-gallery">
+            <div class="container">
+                <h2>Pogledajte naš prostor</h2>
+                <div class="gallery-grid">
+                    <img src="main.jpg" alt="Glavna sala">
+                    <img src="trake.jpg" alt="Kardio sprave">
+                    <img src="ulaz.jpg" alt="Ulaz u teretanu">
+                </div>
+            </div>
+        </section>
+
+        <!-- === KONTAKT SEKCIJA === -->
+        <section id="kontakt" class="contact">
+            <div class="container">
+                <h2>Kontakt i Lokacija</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Posetite nas</h3>
+                        <p><strong>Adresa:</strong> Ulica Knez Mihajlova 89</p>
+                        <p><strong>Telefon:</strong> <a href="tel:0693544471">0693544471</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:nemanja.radosavljević1991@gmail.com">nemanja.radosavljević1991@gmail.com</a></p>
+                        <p><strong>Radno vreme:</strong></p>
+                        <p>Ponedeljak - Petak: 06:00 - 00:00</p>
+                        <p>Subota: 06:00 - 00:00</p>
+                        <p>Nedelja: 06:00 - 00:00</p>
+                    </div>
+                    <div class="contact-image">
+                        <img src="ulaz.jpg" alt="Ulaz u Pro Fitness Valjevo"> <!-- ZAMENITE SA VAŠOM SLIKOM -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Pro Fitness Valjevo. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Jednostavna skripta za glatko skrolovanje kada se klikne na link u meniju
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
